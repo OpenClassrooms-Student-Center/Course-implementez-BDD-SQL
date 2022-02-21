@@ -18,6 +18,9 @@
 --
 -- Table structure for table `film`
 --
+create database if not exists moviz;
+
+use  moviz;
 
 DROP TABLE IF EXISTS `film`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
@@ -33,7 +36,7 @@ CREATE TABLE `film` (
   PRIMARY KEY (`id`),
   KEY `note_id` (`note_id`),
   CONSTRAINT `film_ibfk_1` FOREIGN KEY (`note_id`) REFERENCES `note` (`id`) ON DELETE RESTRICT
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -60,7 +63,7 @@ CREATE TABLE `film_pays_de_sortie` (
   KEY `pays_de_sortie_id` (`pays_de_sortie_id`),
   CONSTRAINT `film_pays_de_sortie_ibfk_1` FOREIGN KEY (`film_id`) REFERENCES `film` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE,
   CONSTRAINT `film_pays_de_sortie_ibfk_2` FOREIGN KEY (`pays_de_sortie_id`) REFERENCES `pays_de_sortie` (`id`) ON DELETE RESTRICT ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -84,7 +87,7 @@ CREATE TABLE `note` (
   `id` int NOT NULL AUTO_INCREMENT,
   `note` int NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -108,7 +111,7 @@ CREATE TABLE `pays_de_sortie` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nom` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 ;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,14 +123,3 @@ LOCK TABLES `pays_de_sortie` WRITE;
 INSERT INTO `pays_de_sortie` VALUES (1,'france'),(2,'usa'),(3,'angleterre'),(4,'allemagne'),(5,'italie'),(6,'espagne');
 /*!40000 ALTER TABLE `pays_de_sortie` ENABLE KEYS */;
 UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
-
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
-
--- Dump completed on 2021-01-10 17:56:46
